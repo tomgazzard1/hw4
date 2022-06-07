@@ -1,6 +1,17 @@
-<h1><%= @place["name"] %></h1>
+<div class="container">
+  <div class="p-3">
+    <h2><%= @place["name"]%>  </h2>
 
 <% if @current_user %>
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-3 text-end">
+        <a href="/posts/new/" class="btn btn-success">New Post</a>
+      </div>
+    </div>
+  </div>
+
   <% for post in @posts %>
 
   <div class ="container">
@@ -9,17 +20,22 @@
         <h3><%= post["title"] %></h3>
         <h4><%= post["posted_on"] %></h4>
         <p><%= post["description"] %></p>
+      </div>
+     </div>
+    </div>  
 
-  
-      <p>
-        <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
-      </p>
   <% end %>
 
 <% else %>
-  You must first <a href="/login">login</a> to view posts.
+    <div class="mb-3">
+      You must first <a href="/login">login</a> to view posts.
+    </div>
+
 <% end %>
 
-      <p>
-        <a href="/places">Back to All Places</a>
-      </p>
+  <div>
+    <a type="button" class="btn btn-primary"href="/places">Back to All Places</a>
+  </div>
+
+</div>
+</div>
