@@ -13,7 +13,7 @@
     </div>
 
     <div class="mb-3">
-      <%= form.label "uploaded_image", :class => "form-label" %>
+      <%= form.label "upload_image", :class => "form-label" %>
       <%= form.file_field "uploaded_image", :accept => "image/png,image/jpg,image/jpeg,image/gif", :class => "form-control" %>
     </div>
 
@@ -26,7 +26,8 @@
       <%= form.submit "Create Post", class:"btn btn-primary"%>
     </div>
 
-  <%= form.hidden_field "place_id" %>
+    <%= form.hidden_field "place_id" %>
+
   <% end %>
 <% else %>
   You must first <a href="/login">login</a> to post.
