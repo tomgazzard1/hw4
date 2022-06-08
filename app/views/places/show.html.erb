@@ -10,7 +10,9 @@
     <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post </a>
   </div>
   <% if @posts.length == 0 %>
-    <%= "You have no posts yet!" %>
+    <div class= p-3>
+      <%= "You have no posts yet!" %>
+    </div>
   <%else %>
     <% for post in @posts %>
       <div class="col-md-4 col-sm-6">
