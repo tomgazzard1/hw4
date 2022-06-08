@@ -1,6 +1,9 @@
-<h1>Places</h1>
+<div class="container">
+  <div class= "p-1">
+    <h1> Places </h1>
+  </div>
 
-<div class="p-3">
+<div class="p-2">
 
   <div class="row">
       <div class="mb-3">
@@ -8,7 +11,7 @@
       </div>
         <div class= "col-md-3 col-sm-6 list-group">
     <% for place in @places %>
-      <a class="list-group-item list-group-item-action" href="/places/<%= place["id"] %>"><%= place["name"] %></a>
+        <a class="list-group-item list-group-item-action" href="/places/<%= place["id"] %>"><%= place["name"] %></a>
     <% end %>
   </div>
   </div>

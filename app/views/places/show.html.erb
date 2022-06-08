@@ -3,32 +3,36 @@
     <h1><%= @place["name"]%>  </h1>
   </div>
 
-  <div class = "p-1">
-    <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post </a>
-  </div>
 
 <div class="row">
 <% if @current_user %>
-  <% for post in @posts %>
-    <div class="col-md-4 col-sm-6">
-    <% if post["user_id"] = @current_user %>
-      <h4><%= post["title"] %></h4>
-      <h5><%= post["posted_on"] %></h5>
-      <% if post.uploaded_image.attached? %>
-        <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+  <div class = "p-1">
+    <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post </a>
+  </div>
+  <% if @posts.length == 0 %>
+    <%= "You have no posts yet!" %>
+  <%else %>
+    <% for post in @posts %>
+      <div class="col-md-4 col-sm-6">
+      <% if post["user_id"] = @current_user %>
+        <h4><%= post["title"] %></h4>
+        <h5><%= post["posted_on"] %></h5>
+        <% if post.uploaded_image.attached? %>
+          <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+        <% end %>
+        <p><%= post["description"] %></p>
+      </div>
       <% end %>
-      <p><%= post["description"] %></p>
-    </div>
     <% end %>
   <% end %>
 
 <% else %>
     <div class="mb-3">
-      You must first <a href="/login">login</a> to view posts.
+      You must first <a href="/login">login</a> or <a href="/users/new">sign up</a> to view posts.
     </div>
 <% end %>
 
-  <div>
+  <div class= "p-1">
     <a type="button" class="btn btn-primary"href="/places">Back to All Places</a>
   </div>
 </div>
