@@ -1,10 +1,12 @@
 <div class="container">
-    <h2><%= @place["name"]%>  </h2>
+  <div class= "p-1">
+    <h1><%= @place["name"]%>  </h1>
+  </div>
 
-  <p>
-       <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post</a>
-  </p>
-  
+  <div class = "p-1">
+    <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post </a>
+  </div>
+
 <div class="row">
 <% if @current_user %>
   <% for post in @posts %>
